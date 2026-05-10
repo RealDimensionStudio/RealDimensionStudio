@@ -26,6 +26,7 @@ export default function OurWork() {
 
     const handleChange = (event) => {
       setIsMobile(event.matches);
+      setMobileVisibleCount(10);
     };
 
     handleChange(mediaQuery);
@@ -33,15 +34,6 @@ export default function OurWork() {
 
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
-
-  useEffect(() => {
-    const totalInCategory =
-      activeCategory === "All"
-        ? work.projects.length
-        : work.projects.filter((p) => p.category === activeCategory).length;
-
-    setMobileVisibleCount(Math.min(10, totalInCategory));
-  }, [activeCategory, isMobile, work.projects]);
 
   const filtered =
     activeCategory === "All"

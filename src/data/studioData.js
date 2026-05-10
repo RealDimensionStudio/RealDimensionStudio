@@ -14,9 +14,9 @@ export const studioData = {
     email: "realdimensionstudio@gmail.com",
     phone: "+91 8587944307 / +91 9702774881",
     instagram: "https://www.instagram.com/realdimensionstudio/",
-    youtube: "https://youtube.com/@realdimensionstudio",
+    youtube: "",
     linkedin: "https://linkedin.com/company/realdimensionstudio",
-    vimeo: "https://vimeo.com/realdimensionstudio",
+    vimeo: "",
   },
 
   // ─── Navigation ────────────────────────────────────────────
@@ -995,10 +995,9 @@ export const studioData = {
     description:
       "Whether you have a feature film, a TVC, or a bold idea — we want to hear it. Reach out and let's make something extraordinary.",
     info: [
-      { icon: "📍", label: "Location", value: "Mumbai, Maharashtra, India" },
+      { icon: "📍", label: "Location", value: "245, Laxmi Plaza, Sab Tv lane,\nAndheri West, Mumbai 400053" },
       { icon: "📧", label: "Email", value: "realdimensionstudio@gmail.com" },
       { icon: "📞", label: "Phone", value: "+91 8587944307 / +91 9702774881" },
-      { icon: "⏰", label: "Hours", value: "Mon–Sat, 10:00 AM – 7:00 PM IST" },
     ],
     formFields: [
       { name: "name", label: "Your Name", type: "text", placeholder: "John Doe" },

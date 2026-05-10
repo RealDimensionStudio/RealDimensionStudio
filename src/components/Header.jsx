@@ -80,7 +80,7 @@ export default function Header() {
               smooth
               duration={600}
               offset={-70}
-              className="hidden md:flex items-center gap-2 px-5 py-2 border border-brand-red text-brand-red text-xs tracking-widest uppercase font-normal hover:bg-brand-red hover:text-brand-lightYellow transition-all duration-300 cursor-pointer"
+              className="inline-flex items-center gap-2 px-3 py-2 md:px-5 md:py-2 border border-brand-red text-brand-red text-[10px] md:text-xs tracking-widest uppercase font-normal hover:bg-brand-red hover:text-brand-lightYellow transition-all duration-300 cursor-pointer"
             >
               Get In Touch
             </Link>

@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import studioData from "../data/studioData";
 
 function SectionLabel({ text }) {
@@ -13,30 +12,6 @@ function SectionLabel({ text }) {
 
 export default function Contact() {
   const { contact, studio } = studioData;
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    service: "VFX",
-    message: "",
-  });
-  const [status, setStatus] = useState("idle"); // idle, sending, success, error
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setStatus("sending");
-    
-    // Simulate API call
-    setTimeout(() => {
-      setStatus("success");
-      setFormData({ name: "", email: "", service: "VFX", message: "" });
-      setTimeout(() => setStatus("idle"), 5000);
-    }, 1500);
-  };
 
   return (
     <section id="contact" className="relative bg-brand-dark py-32 overflow-hidden">
@@ -115,7 +90,6 @@ export default function Contact() {
                   { label: "Instagram", href: studio.instagram, icon: "📸" },
                   { label: "YouTube", href: studio.youtube, icon: "🎬" },
                   { label: "LinkedIn", href: studio.linkedin, icon: "💼" },
-                  { label: "Vimeo", href: studio.vimeo, icon: "🎥" },
                 ].map((s) => (
                   <a
                     key={s.label}
@@ -143,99 +117,31 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Right: Contact form */}
+          {/* Right: Google Map */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="group">
-                <label className="block text-brand-lightYellow/40 text-xs tracking-widest uppercase mb-2">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="John Doe"
-                  className="w-full bg-white/[0.03] border border-brand-lightYellow/10 focus:border-brand-red/60 text-brand-lightYellow placeholder-brand-lightYellow/20 px-4 py-3 text-sm outline-none transition-colors duration-300"
-                />
-              </div>
+            <div className="relative w-full border border-brand-lightYellow/10 rounded-lg overflow-hidden h-[400px]">
+              <iframe
+                title="Real Dimension Studio Location"
+                src={`https://maps.google.com/maps?q=19.1359559,72.8292074&z=17&output=embed`}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
 
-              <div>
-                <label className="block text-brand-lightYellow/40 text-xs tracking-widest uppercase mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="john@example.com"
-                  className="w-full bg-white/[0.03] border border-brand-lightYellow/10 focus:border-brand-red/60 text-brand-lightYellow placeholder-brand-lightYellow/20 px-4 py-3 text-sm outline-none transition-colors duration-300"
-                />
-              </div>
-
-              <div>
-                <label className="block text-brand-lightYellow/40 text-xs tracking-widest uppercase mb-2">
-                  Service Needed
-                </label>
-                <select
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  className="w-full bg-[#141414] border border-brand-lightYellow/10 focus:border-brand-red/60 text-brand-lightYellow px-4 py-3 text-sm outline-none transition-colors duration-300 appearance-none cursor-pointer"
-                >
-                  {contact.formFields.find(f => f.name === "service").options.map(opt => (
-                    <option key={opt} value={opt}>{opt}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-brand-lightYellow/40 text-xs tracking-widest uppercase mb-2">
-                  Your Message
-                </label>
-                <textarea
-                  name="message"
-                  required
-                  rows="4"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us about your project..."
-                  className="w-full bg-white/[0.03] border border-brand-lightYellow/10 focus:border-brand-red/60 text-brand-lightYellow placeholder-brand-lightYellow/20 px-4 py-3 text-sm outline-none transition-colors duration-300 resize-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={status === "sending"}
-                className={`w-full py-4 text-sm tracking-widest uppercase font-normal transition-all duration-300 ${
-                  status === "success"
-                    ? "bg-green-600 text-brand-lightYellow"
-                    : status === "sending"
-                    ? "bg-white/10 text-brand-lightYellow/40 cursor-not-allowed"
-                    : "bg-brand-red text-brand-lightYellow hover:bg-red-700"
-                }`}
-              >
-                {status === "sending"
-                  ? "Sending..."
-                  : status === "success"
-                  ? "Message Sent!"
-                  : "Send Message"}
-              </button>
-
-              {status === "error" && (
-                <p className="text-red-400 text-xs text-center tracking-widest">
-                  Something went wrong. Please try again.
-                </p>
-              )}
-            </form>
+            <div className="mt-6 text-sm text-brand-lightYellow/80">
+              <p className="font-medium">Address</p>
+              <address className="not-italic">245, Laxmi Plaza, Sab Tv lane,<br/>Andheri West, Mumbai 400053</address>
+              <p className="mt-2"><a href="https://www.google.com/maps/place/Laxmi+Plaza,+Laxmi+Industrial+Estate,+Suresh+Nagar,+Andheri+West,+Mumbai,+Maharashtra+400053/@19.1355734,72.8288198,17.85z" target="_blank" rel="noopener noreferrer" className="text-brand-red">Open in Google Maps →</a></p>
+            </div>
           </motion.div>
         </div>
       </div>

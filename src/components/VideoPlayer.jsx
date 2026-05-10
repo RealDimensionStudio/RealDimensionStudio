@@ -20,7 +20,6 @@ export default function VideoPlayer({ videoId, title }) {
     loadVimeoApi()
       .then(() => {
         try {
-          // eslint-disable-next-line no-undef
           player = new window.Vimeo.Player(iframeRef.current);
           // Ensure player is muted before attempting autoplay to avoid browser blocks
           if (typeof player.setMuted === "function") {
@@ -39,7 +38,7 @@ export default function VideoPlayer({ videoId, title }) {
           } else {
             player.play().catch(() => {});
           }
-        } catch (e) {
+        } catch {
           // ignore
         }
       })

@@ -16,7 +16,7 @@ export default {
           gray: "#1c1c1c", // Lightened from 111111
           grayLight: "#262626", // Lightened from 1a1a1a
           muted: "#aaaaaa", // Lightened from 888888
-          lightYellow: "#fceaa4",
+          lightYellow: "#ffffff",
         },
       },
       fontFamily: {
