@@ -8,6 +8,7 @@ import OurWork from "./components/OurWork";
 import Contact from "./components/Contact";
 import SplashScreen from "./components/SplashScreen";
 import CreativeBackground from "./components/CreativeBackground";
+import Scroll3DEffects from "./components/Scroll3DEffects";
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -20,6 +21,7 @@ export default function App() {
       {/* Content wrapper with transparent overlay to ensure readability while displaying CGI depth */}
       <div className="relative z-10 min-h-screen">
         {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
+        <Scroll3DEffects />
         <Header />
         <main>
           <Hero />

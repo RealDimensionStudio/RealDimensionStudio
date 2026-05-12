@@ -60,7 +60,6 @@ export default function VideoPlayer({ videoId, title }) {
         src={`https://player.vimeo.com/video/${videoId}?autoplay=1&loop=1&muted=1&background=0&controls=1&title=0&byline=0&portrait=0&autopause=0&badge=0&dnt=1`}
         frameBorder="0"
         allow="autoplay; fullscreen; picture-in-picture"
-        allowFullScreen
         title={title}
         className="w-full h-full"
       />

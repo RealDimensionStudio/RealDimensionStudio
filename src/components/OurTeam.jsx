@@ -48,17 +48,17 @@ export default function OurTeam() {
 
       const cardCenter = card.offsetLeft + card.offsetWidth / 2;
       const distance = (cardCenter - containerCenter) / container.clientWidth;
-      const absDistance = Math.min(Math.abs(distance), 1.15);
+      const absDistance = Math.min(Math.abs(distance), 1.05);
       const frontLift = Math.max(0, 1 - absDistance);
 
       return {
-        scale: 1 - absDistance * 0.16,
-        rotateY: -distance * 85, // Enhanced for 3D circle effect
-        rotateX: absDistance * 8,
-        translateY: absDistance * 18,
-        translateZ: frontLift * 150, // Pushed forward more to fix overlap feeling
-        zIndex: Math.round(100 - absDistance * 100), // Higher index for centered items
-        opacity: 1 - absDistance * 0.5,
+        scale: 1 - absDistance * 0.1,
+        rotateY: -distance * 18,
+        rotateX: absDistance * 2,
+        translateY: absDistance * 8,
+        translateZ: frontLift * 24,
+        zIndex: Math.round(100 - absDistance * 100),
+        opacity: 1 - absDistance * 0.2,
       };
     });
 
@@ -213,7 +213,7 @@ export default function OurTeam() {
           style={{
             scrollbarWidth: "none",
             msOverflowStyle: "none",
-            perspective: "1800px",
+            perspective: "2600px",
             transformStyle: "preserve-3d",
           }}
         >
@@ -241,7 +241,7 @@ export default function OurTeam() {
                   transition: "transform 220ms ease-out, opacity 220ms ease-out, z-index 220ms",
                 }}
               >
-                <Tilt glareEnable glareMaxOpacity={0.1} glareColor="#e63946" tiltMaxAngleX={5} tiltMaxAngleY={5} perspective={1000} scale={1.02}>
+                <Tilt glareEnable glareMaxOpacity={0.05} glareColor="#e63946" tiltMaxAngleX={3} tiltMaxAngleY={3} perspective={1400} scale={1.01}>
                   <div className="relative backdrop-blur-md bg-white/5 border border-white/10 p-8 cursor-pointer group h-full flex flex-col" onClick={() => setSelectedMember(teamMember)}>
                     <div className="absolute top-0 right-0 w-12 h-12 border-r-2 border-t-2 border-brand-red/50 group-hover:border-brand-red transition-colors duration-300" />
                     <div className="absolute bottom-0 left-0 w-12 h-12 border-l-2 border-b-2 border-brand-red/20 group-hover:border-brand-red/60 transition-colors duration-300" />

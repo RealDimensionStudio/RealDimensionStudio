@@ -489,7 +489,7 @@ export const studioData = {
         tags: ["Compositing", "TV Series", "1 episode"],
         featured: false,
         description: "Compositing work for one episode of the series.",
-        image: "https://m.media-amazon.com/images/M/MV5BZDM4ZjU0YTgtMWFmYi00YTZjLWI5ZmMtZTU5NmI1MTEyZWM0XkEyXkFqcGdeQXVyMTUzNTczMzY4._V1_.jpg",
+        image: "https://boltworldwide.com/wp-content/uploads/2019/05/Post-Production-in-Atlanta.png",
       },
       {
         id: 16,
@@ -567,7 +567,7 @@ export const studioData = {
         tags: ["Compositing", "TV Series", "1 episode"],
         featured: false,
         description: "Compositing work for one episode of the series.",
-        image: "https://m.media-amazon.com/images/M/MV5BZjU0YjE3ZTctY2RkMy00ZGI2LTk0OTctYWY4MWI1N2YxMzQ5XkEyXkFqcGdeQXVyMTUzNTczMzY4._V1_.jpg",
+        image: "https://boltworldwide.com/wp-content/uploads/2019/05/Post-Production-in-Atlanta.png",
       },
       {
         id: 22,
@@ -606,7 +606,7 @@ export const studioData = {
         tags: ["VFX", "TV Series", "2 episodes"],
         featured: false,
         description: "Digital and roto support across 2 episodes.",
-        image: "https://m.media-amazon.com/images/M/MV5BODk4ZGcyMDAtY2U4OC00Nzk3LWEyZWQtN2M3YzYxMWU2NR2fXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
+        image: "https://boltworldwide.com/wp-content/uploads/2019/05/Post-Production-in-Atlanta.png",
       },
       {
         id: 25,
@@ -632,7 +632,7 @@ export const studioData = {
         tags: ["VFX", "TV Series", "10 episodes"],
         featured: false,
         description: "Visual effects work across 10 episodes of the series.",
-        image: "https://m.media-amazon.com/images/M/MV5BZGQzYmYxNmYtZDA4My00MTA3LWE1ZTYtZjc2OTYwYTMzY2M3XkEyXkFqcGdeQXVyMTUzNTczMzY4._V1_.jpg",
+        image: "https://boltworldwide.com/wp-content/uploads/2019/05/Post-Production-in-Atlanta.png",
       },
       {
         id: 27,
@@ -658,7 +658,7 @@ export const studioData = {
         tags: ["VFX", "TV Series", "6 episodes"],
         featured: false,
         description: "Visual effects contribution across 6 episodes.",
-        image: "https://m.media-amazon.com/images/M/MV5BMDk2NWQzNDktNTVjNi00OTZkLWE1NjYtZDM1M2E0YjdiNTM4XkEyXkFqcGdeQXVyMTUzNTczMzY4._V1_.jpg",
+        image: "https://boltworldwide.com/wp-content/uploads/2019/05/Post-Production-in-Atlanta.png",
       },
       {
         id: 29,
@@ -710,7 +710,7 @@ export const studioData = {
         tags: ["VFX", "TV Series", "12 episodes"],
         featured: false,
         description: "Visual effects work across 12 episodes of the series.",
-        image: "https://m.media-amazon.com/images/M/MV5BNzUzNWRiMjYtZDA1Yy00MTJmLWJlMTYtZjY5N2U1M2ZkMzhkXkEyXkFqcGdeQXVyMTI1NDEyNTM5._V1_.jpg",
+        image: "https://boltworldwide.com/wp-content/uploads/2019/05/Post-Production-in-Atlanta.png",
       },
       {
         id: 33,

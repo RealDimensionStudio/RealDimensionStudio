@@ -41,16 +41,16 @@ export default function Services() {
       if (!card) return { scale: 0.88, rotateY: 0, rotateX: 0, translateY: 0, translateZ: 0, opacity: 0.4, zIndex: 1 };
       const cardCenter = card.offsetLeft + card.offsetWidth / 2;
       const distance = (cardCenter - containerCenter) / container.clientWidth;
-      const absDistance = Math.min(Math.abs(distance), 1.15);
-      const frontLift = Math.max(0, 1 - absDistance);
-      return {
-        scale: 1 - absDistance * 0.16,
-        rotateY: -distance * 85,
-        rotateX: absDistance * 8,
-        translateY: absDistance * 18,
-        translateZ: frontLift * 150,
+        const absDistance = Math.min(Math.abs(distance), 1.05);
+        const frontLift = Math.max(0, 1 - absDistance);
+        return {
+        scale: 1 - absDistance * 0.1,
+        rotateY: -distance * 20,
+        rotateX: absDistance * 2,
+        translateY: absDistance * 8,
+        translateZ: frontLift * 28,
         zIndex: Math.round(100 - absDistance * 100),
-        opacity: 1 - absDistance * 0.5,
+        opacity: 1 - absDistance * 0.22,
       };
     });
     setCardTransforms(transforms);
@@ -190,10 +190,10 @@ export default function Services() {
         </motion.div>
 
         {/* Horizontal scroll track */}
-        <div style={{ perspective: "1800px" }}>
+        <div style={{ perspective: "2600px" }}>
           <div
             ref={scrollRef}
-            className="flex gap-5 overflow-x-auto py-12 cursor-grab select-none scrollbar-hide snap-x snap-mandatory"
+            className="flex gap-8 md:gap-10 overflow-x-auto py-12 px-4 cursor-grab select-none scrollbar-hide snap-x snap-mandatory"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none", transformStyle: "preserve-3d" }}
             onMouseDown={onMouseDown}
             onMouseMove={onMouseMove}
@@ -235,12 +235,12 @@ export default function Services() {
                 >
                   <Tilt
                     glareEnable
-                    glareMaxOpacity={0.12}
+                    glareMaxOpacity={0.06}
                     glareColor={service.color}
-                    tiltMaxAngleX={10}
-                    tiltMaxAngleY={10}
-                    perspective={900}
-                    scale={1.03}
+                    tiltMaxAngleX={4}
+                    tiltMaxAngleY={4}
+                    perspective={1400}
+                    scale={1.01}
                   >
                     <div
                       className={`relative h-[340px] p-7 border transition-all duration-400 cursor-pointer group flex flex-col justify-between backdrop-blur-md ${
