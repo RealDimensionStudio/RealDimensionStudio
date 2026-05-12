@@ -123,7 +123,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-brand-darker"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-transparent"
     >
       {/* Particle canvas */}
       <canvas
@@ -238,23 +238,11 @@ export default function Hero() {
             <span className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[1]" style={{ mixBlendMode: "difference" }} />
           </Link>
-          <Link
-            to={hero.ctaSecondary.href}
-            smooth
-            duration={600}
-            offset={-70}
-            className="group flex items-center gap-3 px-8 py-4 border border-brand-lightYellow/20 text-brand-lightYellow text-sm tracking-widest uppercase font-medium cursor-pointer hover:border-brand-lightYellow/60 transition-colors duration-300"
-          >
-            <span className="w-8 h-8 rounded-full border border-brand-lightYellow/30 flex items-center justify-center group-hover:border-brand-red group-hover:bg-brand-red/10 transition-all duration-300">
-              ▶
-            </span>
-            {hero.ctaSecondary.label}
-          </Link>
         </motion.div>
 
         {/* Stats */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-px mt-20 border border-brand-lightYellow/5"
+          className="grid grid-cols-2 md:grid-cols-4 gap-px mt-12 border border-brand-lightYellow/5"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}

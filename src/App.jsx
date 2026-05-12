@@ -2,27 +2,34 @@ import { useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import OurTeam from "./components/OurTeam";
 import Services from "./components/Services";
 import OurWork from "./components/OurWork";
-import ShowReels from "./components/ShowReels";
 import Contact from "./components/Contact";
 import SplashScreen from "./components/SplashScreen";
+import CreativeBackground from "./components/CreativeBackground";
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
 
   return (
-    <div className="bg-brand-darker text-brand-lightYellow">
-      {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <OurWork />
-        <ShowReels />
-        <Contact />
-      </main>
+    <div className="relative text-brand-lightYellow min-h-screen noise-overlay">
+      {/* Dynamic 3D / VFX Background Component */}
+      <CreativeBackground />
+      
+      {/* Content wrapper with transparent overlay to ensure readability while displaying CGI depth */}
+      <div className="relative z-10 min-h-screen">
+        {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
+        <Header />
+        <main>
+          <Hero />
+          <About />
+          <OurTeam />
+          <Services />
+          <OurWork />
+          <Contact />
+        </main>
+      </div>
     </div>
   );
 }

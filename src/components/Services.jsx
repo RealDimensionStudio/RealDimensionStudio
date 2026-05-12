@@ -15,10 +15,12 @@ function SectionLabel({ text }) {
 export default function Services() {
   const { services } = studioData;
   const scrollRef = useRef(null);
+  const cardRefs = useRef([]);
   const [activeIndex, setActiveIndex] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [cardTransforms, setCardTransforms] = useState([]);
   const dragStart = useRef(0);
   const scrollStart = useRef(0);
 
@@ -31,11 +33,43 @@ export default function Services() {
     }
   };
 
+  const updateCardTransforms = () => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const containerCenter = container.scrollLeft + container.clientWidth / 2;
+    const transforms = cardRefs.current.map((card) => {
+      if (!card) return { scale: 0.88, rotateY: 0, rotateX: 0, translateY: 0, translateZ: 0, opacity: 0.4, zIndex: 1 };
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const distance = (cardCenter - containerCenter) / container.clientWidth;
+      const absDistance = Math.min(Math.abs(distance), 1.15);
+      const frontLift = Math.max(0, 1 - absDistance);
+      return {
+        scale: 1 - absDistance * 0.16,
+        rotateY: -distance * 85,
+        rotateX: absDistance * 8,
+        translateY: absDistance * 18,
+        translateZ: frontLift * 150,
+        zIndex: Math.round(100 - absDistance * 100),
+        opacity: 1 - absDistance * 0.5,
+      };
+    });
+    setCardTransforms(transforms);
+  };
+
   useEffect(() => {
     checkScroll();
+    updateCardTransforms();
     window.addEventListener("resize", checkScroll);
-    return () => window.removeEventListener("resize", checkScroll);
+    window.addEventListener("resize", updateCardTransforms);
+    return () => {
+      window.removeEventListener("resize", checkScroll);
+      window.removeEventListener("resize", updateCardTransforms);
+    }
   }, []);
+
+  useEffect(() => {
+    updateCardTransforms();
+  }, [services.length]);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -44,8 +78,10 @@ export default function Services() {
         left: direction === "next" ? scrollAmount : -scrollAmount,
         behavior: "smooth",
       });
-      // Small delay to check scroll after animation
-      setTimeout(checkScroll, 400);
+      setTimeout(() => {
+        checkScroll();
+        updateCardTransforms();
+      }, 400);
     }
   };
 
@@ -70,7 +106,7 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="relative bg-brand-darker py-32 overflow-hidden">
+    <section id="services" className="relative bg-transparent py-16 md:py-20 overflow-hidden">
       {/* BG grid */}
       <div
         className="absolute inset-0 opacity-[0.025] pointer-events-none"
@@ -154,50 +190,73 @@ export default function Services() {
         </motion.div>
 
         {/* Horizontal scroll track */}
-        <div
-          ref={scrollRef}
-          className="flex gap-5 overflow-x-auto pb-6 cursor-grab select-none scrollbar-hide"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          onMouseDown={onMouseDown}
-          onMouseMove={onMouseMove}
-          onMouseUp={onMouseUp}
-          onMouseLeave={onMouseUp}
-          onScroll={checkScroll}
-        >
-          {services.map((service, i) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05, duration: 0.5 }}
-              className="flex-shrink-0 w-72"
-              onClick={() => setActiveIndex(activeIndex === i ? null : i)}
-            >
-              <Tilt
-                glareEnable
-                glareMaxOpacity={0.12}
-                glareColor={service.color}
-                tiltMaxAngleX={10}
-                tiltMaxAngleY={10}
-                perspective={900}
-                scale={1.03}
-              >
+        <div style={{ perspective: "1800px" }}>
+          <div
+            ref={scrollRef}
+            className="flex gap-5 overflow-x-auto py-12 cursor-grab select-none scrollbar-hide snap-x snap-mandatory"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none", transformStyle: "preserve-3d" }}
+            onMouseDown={onMouseDown}
+            onMouseMove={onMouseMove}
+            onMouseUp={onMouseUp}
+            onMouseLeave={onMouseUp}
+            onScroll={(e) => {
+              checkScroll();
+              updateCardTransforms();
+            }}
+          >
+            {services.map((service, i) => {
+              const transform = cardTransforms[i] || {
+                scale: 0.9,
+                rotateY: 0,
+                rotateX: 0,
+                translateY: 0,
+                translateZ: 0,
+                opacity: 0.3,
+                zIndex: 1,
+              };
+
+              return (
                 <div
-                  className={`relative h-80 p-7 border transition-all duration-400 cursor-pointer group flex flex-col justify-between ${
-                    activeIndex === i
-                      ? "border-opacity-70 bg-brand-lightYellow/[0.05]"
-                      : "border-brand-lightYellow/5 bg-brand-lightYellow/[0.02] hover:bg-brand-lightYellow/[0.04]"
-                  }`}
+                  key={service.id}
+                  ref={(el) => (cardRefs.current[i] = el)}
+                  className="flex-shrink-0 w-72 sm:w-80 snap-center transition-all duration-300 ease-out"
+                  onClick={() => setActiveIndex(activeIndex === i ? null : i)}
                   style={{
-                    borderColor: activeIndex === i ? service.color : undefined,
+                    transform: `
+                      scale(${transform.scale})
+                      rotateY(${transform.rotateY}deg)
+                      rotateX(${transform.rotateX}deg)
+                      translateY(${transform.translateY}px)
+                      translateZ(${transform.translateZ}px)
+                    `,
+                    zIndex: transform.zIndex,
+                    opacity: transform.opacity,
                   }}
                 >
-                  {/* Number */}
-                  <span className="absolute top-5 right-5 text-brand-lightYellow/10 text-4xl font-normal"
-                    style={{ fontFamily: "'Bebas Neue', cursive" }}>
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+                  <Tilt
+                    glareEnable
+                    glareMaxOpacity={0.12}
+                    glareColor={service.color}
+                    tiltMaxAngleX={10}
+                    tiltMaxAngleY={10}
+                    perspective={900}
+                    scale={1.03}
+                  >
+                    <div
+                      className={`relative h-[340px] p-7 border transition-all duration-400 cursor-pointer group flex flex-col justify-between backdrop-blur-md ${
+                        activeIndex === i
+                          ? "border-opacity-70 bg-white/10"
+                          : "border-white/10 bg-white/5 hover:bg-white/10"
+                      }`}
+                      style={{
+                        borderColor: activeIndex === i ? service.color : undefined,
+                      }}
+                    >
+                      {/* Number */}
+                      <span className="absolute top-5 right-5 text-brand-lightYellow/10 text-4xl font-normal"
+                        style={{ fontFamily: "'Bebas Neue', cursive" }}>
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
 
                   {/* Color accent bar */}
                   <div
@@ -246,8 +305,10 @@ export default function Services() {
                   </div>
                 </div>
               </Tilt>
-            </motion.div>
-          ))}
+            </div>
+          );
+        })}
+        </div>
         </div>
 
         {/* Scroll hint */}

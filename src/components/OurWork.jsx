@@ -73,7 +73,7 @@ export default function OurWork() {
   };
 
   return (
-    <section id="work" className="relative bg-brand-dark py-32 overflow-hidden">
+    <section id="work" className="relative bg-transparent py-16 md:py-20 overflow-hidden">
       {/* BG glow */}
       <div
         className="absolute bottom-0 right-0 w-[600px] h-[600px] opacity-5 pointer-events-none"
@@ -149,24 +149,28 @@ export default function OurWork() {
                     className="relative overflow-hidden border border-brand-lightYellow/5 bg-brand-grayLight group cursor-pointer max-w-[290px] mx-auto w-full"
                     style={{ aspectRatio: "1/1.18" }}
                   >
-                    {/* Thumbnail placeholder with gradient */}
+                    {/* Thumbnail or placeholder */}
                     <div
                       className="absolute inset-0 transition-transform duration-700 group-hover:scale-110"
                       style={{
-                        background: `linear-gradient(135deg, #1a1a1a 0%, #111 50%, #0a0a0a 100%)`,
+                        background: project.image ? `url(${project.image}) center/cover no-repeat` : `linear-gradient(135deg, #1a1a1a 0%, #111 50%, #0a0a0a 100%)`,
                       }}
                     >
-                      {/* Decorative lines */}
-                      <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                        <div className="w-20 h-20 border border-brand-lightYellow rounded-full" />
-                        <div className="absolute w-14 h-14 border border-brand-lightYellow/50 rounded-full" />
-                      </div>
-                      <div
-                        className="absolute inset-0 opacity-20"
-                        style={{
-                          background: `radial-gradient(circle at 30% 70%, #e63946 0%, transparent 50%)`,
-                        }}
-                      />
+                      {/* Decorative lines (only show if no image) */}
+                      {!project.image && (
+                        <>
+                          <div className="absolute inset-0 flex items-center justify-center opacity-10">
+                            <div className="w-20 h-20 border border-brand-lightYellow rounded-full" />
+                            <div className="absolute w-14 h-14 border border-brand-lightYellow/50 rounded-full" />
+                          </div>
+                          <div
+                            className="absolute inset-0 opacity-20"
+                            style={{
+                              background: `radial-gradient(circle at 30% 70%, #e63946 0%, transparent 50%)`,
+                            }}
+                          />
+                        </>
+                      )}
                       {/* Year badge */}
                       <span
                         className="absolute top-2 right-2 text-brand-lightYellow/10 text-4xl font-normal"

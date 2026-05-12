@@ -23,9 +23,9 @@ export const studioData = {
   nav: [
     { label: "Home", href: "home" },
     { label: "About", href: "about" },
+    { label: "Our Team", href: "our-team" },
     { label: "Services", href: "services" },
     { label: "Our Work", href: "work" },
-    { label: "Show Reels", href: "reels" },
     { label: "Contact", href: "contact" },
   ],
 
@@ -126,7 +126,7 @@ export const studioData = {
         },
       },
       {
-        name: "Ravi K. Parashar (I)",
+        name: "Ravi K. Parashar",
         role: "Co-Founder and Professional colourist",
         bio: "Senior Colorist and Co‑Founder. Ravi K. Parashar is known for Article 15 (2019), Love Sorries (2021) and Maddhim (2024). Deep experience in DI, color grading and final finish for feature films, TV and commercials.",
         expertise: ["Color Grading", "Digital Intermediate (DI)", "DaVinci Resolve", "Look Development", "Finishing", "Visual Effects"],
@@ -307,6 +307,7 @@ export const studioData = {
         tags: ["VFX", "Real Dimension Studio", "2026"],
         featured: true,
         description: "Latest feature work delivered by Real Dimension Studio.",
+        image: "https://image.tmdb.org/t/p/w500/jTQDTVXjmL071PzJbjlVr27YZu2.jpg",
       },
       {
         id: 2,
@@ -319,6 +320,7 @@ export const studioData = {
         tags: ["VFX Supervisor", "2025"],
         featured: true,
         description: "VFX supervision on the 2025 production.",
+        image: "https://image.tmdb.org/t/p/w500/nqqJfUi2KgrHTyzRO2rEMZZ8nvu.jpg",
       },
       {
         id: 3,
@@ -331,6 +333,7 @@ export const studioData = {
         tags: ["VFX", "Real Dimension Studio", "Marathi"],
         featured: true,
         description: "Full post production delivered by Real Dimension Studio.",
+        image: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=1000&auto=format&fit=crop",
       },
       {
         id: 4,
@@ -343,6 +346,7 @@ export const studioData = {
         tags: ["VFX", "2024"],
         featured: true,
         description: "Visual effects work on the 2024 production.",
+        image: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=1000&auto=format&fit=crop",
       },
       {
         id: 5,
@@ -355,6 +359,7 @@ export const studioData = {
         tags: ["VFX", "2024"],
         featured: true,
         description: "Visual effects contribution for the 2024 feature.",
+        image: "https://image.tmdb.org/t/p/w500/9Jbsa4KSf5Dwwwy4hku4gkRg17A.jpg",
       },
       {
         id: 6,
@@ -367,6 +372,7 @@ export const studioData = {
         tags: ["VFX", "Action", "Real Dimension Studio"],
         featured: false,
         description: "VFX work for the action spectacle.",
+        image: "https://image.tmdb.org/t/p/w500/ote8HmQOgmoAfqFaqVKsEdgD2q4.jpg",
       },
       {
         id: 7,
@@ -379,6 +385,7 @@ export const studioData = {
         tags: ["VFX", "Action", "2023"],
         featured: false,
         description: "Visual effects work on the 2023 action feature.",
+        image: "https://image.tmdb.org/t/p/w500/z5kngie7G0bR9CL3tcWhZLwIpIc.jpg",
       },
       {
         id: 8,
@@ -391,6 +398,7 @@ export const studioData = {
         tags: ["VFX", "Supervisor", "2023"],
         featured: false,
         description: "VFX supervision for the rescue drama.",
+        image: "https://image.tmdb.org/t/p/w500/3804yFLTPlMqG6Jxsm20aqcFEfU.jpg",
       },
       {
         id: 9,
@@ -403,6 +411,7 @@ export const studioData = {
         tags: ["VFX", "TV Series", "8 episodes"],
         featured: false,
         description: "Supervised VFX across 8 episodes of the action thriller series.",
+        image: "https://image.tmdb.org/t/p/w500/f7wJ7ppGkxXO6ilgkLKYIfQKNZ.jpg",
       },
       {
         id: 10,
@@ -415,6 +424,7 @@ export const studioData = {
         tags: ["VFX", "Action", "Keanu Reeves"],
         featured: false,
         description: "Visual effects work on the global action franchise.",
+        image: "https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg",
       },
       {
         id: 11,
@@ -427,6 +437,7 @@ export const studioData = {
         tags: ["VFX", "Action", "Real Dimension Studio"],
         featured: false,
         description: "VFX contribution to the blockbuster action film.",
+        image: "https://image.tmdb.org/t/p/w500/arf00BkwvXo0CFKbaD9OpqdE4Nu.jpg",
       },
       {
         id: 12,
@@ -439,6 +450,7 @@ export const studioData = {
         tags: ["VFX", "Supervisor", "2022"],
         featured: false,
         description: "VFX supervision on the 2022 feature.",
+        image: "https://image.tmdb.org/t/p/w500/5tTfyQ30n1UcfiVFQQWtgHJwqgj.jpg",
       },
       {
         id: 13,
@@ -451,6 +463,7 @@ export const studioData = {
         tags: ["Compositing", "2022"],
         featured: false,
         description: "Compositing supervision on the feature film.",
+        image: "https://image.tmdb.org/t/p/w500/ygsMOnttVCekvJZgvmnvaemxPHA.jpg",
       },
       {
         id: 14,
@@ -463,6 +476,7 @@ export const studioData = {
         tags: ["Compositing", "2022"],
         featured: false,
         description: "Compositing work for the 2022 film.",
+        image: "https://image.tmdb.org/t/p/w500/uQppjrljRPiYtvxoRctqbh2IWAB.jpg",
       },
       {
         id: 15,
@@ -475,6 +489,7 @@ export const studioData = {
         tags: ["Compositing", "TV Series", "1 episode"],
         featured: false,
         description: "Compositing work for one episode of the series.",
+        image: "https://m.media-amazon.com/images/M/MV5BZDM4ZjU0YTgtMWFmYi00YTZjLWI5ZmMtZTU5NmI1MTEyZWM0XkEyXkFqcGdeQXVyMTUzNTczMzY4._V1_.jpg",
       },
       {
         id: 16,
@@ -487,6 +502,7 @@ export const studioData = {
         tags: ["VFX", "TV Series", "6 episodes"],
         featured: false,
         description: "Visual effects work across 6 episodes of the series.",
+        image: "https://image.tmdb.org/t/p/w500/gnQgeN0TPsx3Sb4Zq7F3g6WEre1.jpg",
       },
       {
         id: 17,
@@ -499,6 +515,7 @@ export const studioData = {
         tags: ["Compositing", "2022"],
         featured: false,
         description: "Compositing contribution to the action feature.",
+        image: "https://image.tmdb.org/t/p/w500/kBZEDW004FLzPTdBpko6Qf4lACJ.jpg",
       },
       {
         id: 18,
@@ -511,6 +528,7 @@ export const studioData = {
         tags: ["VFX", "Supervisor", "Marathi"],
         featured: false,
         description: "VFX supervision for the Marathi feature.",
+        image: "https://image.tmdb.org/t/p/w500/5jBRXs70oy6ZM0uMwHFNHonnMk6.jpg",
       },
       {
         id: 19,
@@ -523,6 +541,7 @@ export const studioData = {
         tags: ["Compositing", "2022"],
         featured: false,
         description: "Compositing work on the 2022 feature.",
+        image: "https://image.tmdb.org/t/p/w500/y7DOaApwC0CO5EEV7Knqju3rLFa.jpg",
       },
       {
         id: 20,
@@ -535,6 +554,7 @@ export const studioData = {
         tags: ["VFX", "Supervisor", "2022"],
         featured: false,
         description: "VFX supervision for the feature.",
+        image: "https://image.tmdb.org/t/p/w500/xPVxTQnYB9TGoVTE9Dj66donrpr.jpg",
       },
       {
         id: 21,
@@ -547,6 +567,7 @@ export const studioData = {
         tags: ["Compositing", "TV Series", "1 episode"],
         featured: false,
         description: "Compositing work for one episode of the series.",
+        image: "https://m.media-amazon.com/images/M/MV5BZjU0YjE3ZTctY2RkMy00ZGI2LTk0OTctYWY4MWI1N2YxMzQ5XkEyXkFqcGdeQXVyMTUzNTczMzY4._V1_.jpg",
       },
       {
         id: 22,
@@ -559,6 +580,7 @@ export const studioData = {
         tags: ["VFX", "Horror", "2022"],
         featured: false,
         description: "Visual effects work on the supernatural comedy.",
+        image: "https://image.tmdb.org/t/p/w500/fw0oMHiMt9qOuKEJEmzFiCNAnXc.jpg",
       },
       {
         id: 23,
@@ -571,6 +593,7 @@ export const studioData = {
         tags: ["Compositing", "2022"],
         featured: false,
         description: "Compositing work on the action feature.",
+        image: "https://image.tmdb.org/t/p/w500/4mTK8drt1EWo1AzqBrV4mJA04Wh.jpg",
       },
       {
         id: 24,
@@ -583,6 +606,7 @@ export const studioData = {
         tags: ["VFX", "TV Series", "2 episodes"],
         featured: false,
         description: "Digital and roto support across 2 episodes.",
+        image: "https://m.media-amazon.com/images/M/MV5BODk4ZGcyMDAtY2U4OC00Nzk3LWEyZWQtN2M3YzYxMWU2NR2fXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
       },
       {
         id: 25,
@@ -595,6 +619,7 @@ export const studioData = {
         tags: ["Compositing", "2021"],
         featured: false,
         description: "Compositing work on the thriller feature.",
+        image: "https://image.tmdb.org/t/p/w500/l0E50ILyzg0AyjKuV45aEPuIOz4.jpg",
       },
       {
         id: 26,
@@ -607,6 +632,7 @@ export const studioData = {
         tags: ["VFX", "TV Series", "10 episodes"],
         featured: false,
         description: "Visual effects work across 10 episodes of the series.",
+        image: "https://m.media-amazon.com/images/M/MV5BZGQzYmYxNmYtZDA4My00MTA3LWE1ZTYtZjc2OTYwYTMzY2M3XkEyXkFqcGdeQXVyMTUzNTczMzY4._V1_.jpg",
       },
       {
         id: 27,
@@ -619,6 +645,7 @@ export const studioData = {
         tags: ["Compositing", "TV Series", "14 episodes"],
         featured: false,
         description: "Compositing work across 14 episodes.",
+        image: "https://image.tmdb.org/t/p/w500/fZbI8nI8KWhRzgNwZbWYDZDBMAA.jpg",
       },
       {
         id: 28,
@@ -631,6 +658,7 @@ export const studioData = {
         tags: ["VFX", "TV Series", "6 episodes"],
         featured: false,
         description: "Visual effects contribution across 6 episodes.",
+        image: "https://m.media-amazon.com/images/M/MV5BMDk2NWQzNDktNTVjNi00OTZkLWE1NjYtZDM1M2E0YjdiNTM4XkEyXkFqcGdeQXVyMTUzNTczMzY4._V1_.jpg",
       },
       {
         id: 29,
@@ -643,6 +671,7 @@ export const studioData = {
         tags: ["Compositing", "TV Series", "8 episodes"],
         featured: false,
         description: "Compositing work across 8 episodes.",
+        image: "https://image.tmdb.org/t/p/w500/dK4Gi1UdMiHzHc7r7CZQG4IQ9Sr.jpg",
       },
       {
         id: 30,
@@ -655,6 +684,7 @@ export const studioData = {
         tags: ["VFX", "2021"],
         featured: false,
         description: "Visual effects work on the feature film.",
+        image: "https://image.tmdb.org/t/p/w500/gyCjyKR6cCW9reeN3yCgNDoDpjJ.jpg",
       },
       {
         id: 31,
@@ -667,6 +697,7 @@ export const studioData = {
         tags: ["VFX", "2020"],
         featured: false,
         description: "Visual effects contribution on the family feature.",
+        image: "https://image.tmdb.org/t/p/w500/1S21HpcKY6uQ9UAw68aICmrJaq6.jpg",
       },
       {
         id: 32,
@@ -679,6 +710,7 @@ export const studioData = {
         tags: ["VFX", "TV Series", "12 episodes"],
         featured: false,
         description: "Visual effects work across 12 episodes of the series.",
+        image: "https://m.media-amazon.com/images/M/MV5BNzUzNWRiMjYtZDA1Yy00MTJmLWJlMTYtZjY5N2U1M2ZkMzhkXkEyXkFqcGdeQXVyMTI1NDEyNTM5._V1_.jpg",
       },
       {
         id: 33,
@@ -691,6 +723,7 @@ export const studioData = {
         tags: ["VFX", "Amazon Prime", "2020"],
         featured: false,
         description: "Visual effects work on the acclaimed Tamil feature.",
+        image: "https://image.tmdb.org/t/p/w500/5uimlxPCgAei8JfQUDFEUQLoyyh.jpg",
       },
       {
         id: 34,
@@ -703,6 +736,7 @@ export const studioData = {
         tags: ["VFX", "TV Mini Series", "8 episodes"],
         featured: false,
         description: "Visual effects work across 8 episodes.",
+        image: "https://image.tmdb.org/t/p/w500/cOiuCeECSRqzpwuY6wYKQzvPcXm.jpg",
       },
       {
         id: 35,
@@ -715,6 +749,7 @@ export const studioData = {
         tags: ["Paint", "TV Series", "13 episodes"],
         featured: false,
         description: "Paint work across 13 episodes of the series.",
+        image: "https://image.tmdb.org/t/p/w500/gwsrtzSrr7G6xjxsa7IwaAMHpEF.jpg",
       },
       {
         id: 36,
@@ -727,6 +762,7 @@ export const studioData = {
         tags: ["VFX", "2019"],
         featured: false,
         description: "Visual effects work on the franchise film.",
+        image: "https://image.tmdb.org/t/p/w500/dPrUPFcgLfNbmDL8V69vcrTyEfb.jpg",
       },
       {
         id: 37,
@@ -739,6 +775,7 @@ export const studioData = {
         tags: ["VFX", "2019"],
         featured: false,
         description: "Visual effects contribution to the live-action feature.",
+        image: "https://image.tmdb.org/t/p/w500/eLFfl7vS8dkeG1hKp5mwbm37V83.jpg",
       },
       {
         id: 38,
@@ -751,6 +788,7 @@ export const studioData = {
         tags: ["VFX", "Marvel", "2019"],
         featured: false,
         description: "Visual effects work on one of the biggest films ever made.",
+        image: "https://image.tmdb.org/t/p/w500/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg",
       },
       {
         id: 39,
@@ -763,6 +801,7 @@ export const studioData = {
         tags: ["VFX", "Uncredited", "2019"],
         featured: false,
         description: "Visual effects work on the DC superhero feature.",
+        image: "https://image.tmdb.org/t/p/w500/xnopI5Xtky18MPhK40cZAGAOVeV.jpg",
       },
       {
         id: 40,
@@ -775,6 +814,7 @@ export const studioData = {
         tags: ["Paint", "2019"],
         featured: false,
         description: "Paint work on the fantasy feature.",
+        image: "https://image.tmdb.org/t/p/w500/4x9FmvdJ464Fg7A9XcbYSmxfVw3.jpg",
       },
       {
         id: 41,
@@ -787,6 +827,7 @@ export const studioData = {
         tags: ["VFX", "2019"],
         featured: false,
         description: "Visual effects work on the historical feature.",
+        image: "https://image.tmdb.org/t/p/w500/kbTzlKKnZHZ8RYulknO4xqQOJ24.jpg",
       },
       {
         id: 42,
@@ -799,6 +840,7 @@ export const studioData = {
         tags: ["VFX", "2018"],
         featured: false,
         description: "Visual effects contribution to the underwater superhero feature.",
+        image: "https://image.tmdb.org/t/p/w500/ufl63EFcc5XpByEV2Ecdw6WJZAI.jpg",
       },
       {
         id: 43,
@@ -811,6 +853,7 @@ export const studioData = {
         tags: ["VFX", "2018"],
         featured: false,
         description: "Visual effects work on the jungle fantasy feature.",
+        image: "https://image.tmdb.org/t/p/w500/clRnzMsFoMIdC7I5JsG6dnnHH8l.jpg",
       },
       {
         id: 44,
@@ -823,6 +866,7 @@ export const studioData = {
         tags: ["VFX", "2018"],
         featured: false,
         description: "Visual effects contribution to the fantasy franchise.",
+        image: "https://image.tmdb.org/t/p/w500/fMMrl8fD9gRCFJvsx0SuFwkEOop.jpg",
       },
       {
         id: 45,
@@ -835,6 +879,7 @@ export const studioData = {
         tags: ["VFX", "2018"],
         featured: false,
         description: "Visual effects work on the symbiote-driven action feature.",
+        image: "https://image.tmdb.org/t/p/w500/2uNW4WbgBXL25BAbXGLnLqX71Sw.jpg",
       },
       {
         id: 46,
@@ -847,6 +892,7 @@ export const studioData = {
         tags: ["VFX", "2018"],
         featured: false,
         description: "Visual effects contribution to the creature feature.",
+        image: "https://image.tmdb.org/t/p/w500/eyWICPcxOuTcDDDbTMOZawoOn8d.jpg",
       },
       {
         id: 47,
@@ -859,6 +905,7 @@ export const studioData = {
         tags: ["VFX", "Marathi", "2022"],
         featured: false,
         description: "Additional Marathi feature work.",
+        image: "https://image.tmdb.org/t/p/w500/5jBRXs70oy6ZM0uMwHFNHonnMk6.jpg",
       },
     ],
   },
@@ -998,6 +1045,7 @@ export const studioData = {
       { icon: "📍", label: "Location", value: "245, Laxmi Plaza, Sab Tv lane,\nAndheri West, Mumbai 400053" },
       { icon: "📧", label: "Email", value: "realdimensionstudio@gmail.com" },
       { icon: "📞", label: "Phone", value: "+91 8587944307 / +91 9702774881" },
+      { icon: "📄", label: "Company Profile", value: "Open PDF", href: "company-profile-pdf" },
     ],
     formFields: [
       { name: "name", label: "Your Name", type: "text", placeholder: "John Doe" },

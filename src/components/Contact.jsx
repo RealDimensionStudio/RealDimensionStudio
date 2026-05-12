@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
+void motion;
 import studioData from "../data/studioData";
+import companyProfilePdf from "../assets/RDS Company Profile.pdf";
 
 function SectionLabel({ text }) {
   return (
@@ -14,7 +16,7 @@ export default function Contact() {
   const { contact, studio } = studioData;
 
   return (
-    <section id="contact" className="relative bg-brand-dark py-32 overflow-hidden">
+    <section id="contact" className="relative bg-transparent py-16 md:py-20 overflow-hidden">
       {/* BG accent */}
       <div
         className="absolute bottom-0 left-0 w-[500px] h-[500px] opacity-5 pointer-events-none"
@@ -76,7 +78,19 @@ export default function Contact() {
                     <p className="text-brand-lightYellow/30 text-xs tracking-widest uppercase mb-0.5">
                       {item.label}
                     </p>
-                    <p className="text-brand-lightYellow/80 text-sm font-medium">{item.value}</p>
+                    {item.href ? (
+                      <a
+                        href={item.href === "company-profile-pdf" ? companyProfilePdf : item.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-brand-lightYellow/80 text-sm font-medium hover:text-brand-red transition-colors duration-200"
+                        title="Open Company Profile PDF"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="text-brand-lightYellow/80 text-sm font-medium">{item.value}</p>
+                    )}
                   </div>
                 </motion.div>
               ))}
@@ -147,7 +161,7 @@ export default function Contact() {
       </div>
 
       {/* Footer strip */}
-      <div className="mt-24 border-t border-brand-lightYellow/5">
+      <div className="mt-12 border-t border-brand-lightYellow/5">
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="text-brand-lightYellow/20 text-xs tracking-widest">
             © {new Date().getFullYear()} RealDimension Studio. All rights reserved.
