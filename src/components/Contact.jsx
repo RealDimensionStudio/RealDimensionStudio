@@ -164,7 +164,7 @@ export default function Contact() {
       <div className="mt-12 border-t border-brand-lightYellow/5">
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="text-brand-lightYellow/20 text-xs tracking-widest">
-            © {new Date().getFullYear()} RealDimension Studio. All rights reserved.
+            © {new Date().getFullYear()} Real Dimension Studio. All rights reserved.
           </span>
           <span className="text-brand-lightYellow/10 text-xs tracking-widest uppercase">
             Mumbai, India

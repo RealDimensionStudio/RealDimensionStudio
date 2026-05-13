@@ -6,7 +6,7 @@
 export const studioData = {
   // ─── Studio Meta ───────────────────────────────────────────
   studio: {
-    name: "RealDimension Studio",
+    name: "Real Dimension Studio",
     tagline: "You Imagine. We Create.",
     subTagline: "Post Production | VFX | CGI | DI",
     location: "Mumbai, India",

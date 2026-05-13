@@ -1,6 +1,6 @@
-# RealDimension Studio
+# Real Dimension Studio
 
-RealDimension Studio is a cinematic portfolio and studio landing page built with React and Vite. It presents the studio's services, featured work, show reels, and contact details through a bold, motion-heavy visual experience. made by Harendra Singh.
+Real Dimension Studio is a cinematic portfolio and studio landing page built with React and Vite. It presents the studio's services, featured work, show reels, and contact details through a bold, motion-heavy visual experience. made by Harendra Singh.
 
 ## Tech Stack
 
