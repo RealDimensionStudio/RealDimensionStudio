@@ -157,10 +157,10 @@ export default function Hero() {
       ))}
 
       {/* Main content */}
-      <div className="relative z-10 max-w-[120rem] mx-auto px-4 pt-32 pb-20 w-full">
+      <div className="relative z-10 max-w-[120rem] mx-auto px-4 pt-14 md:pt-18 pb-20 w-full">
         {/* Divider */}
         <motion.div
-          className="flex justify-center mb-12"
+          className="flex justify-center mb-8"
           initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
           transition={{ delay: 0.1, duration: 0.6 }}
@@ -170,18 +170,21 @@ export default function Hero() {
 
         {/* Studio name + featured videos */}
         <motion.div
-          className="flex flex-col items-center justify-center mb-12 gap-6"
+          className="flex flex-col items-center justify-center mb-8 gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          {/* Main Logo Image */}
-          <div ref={titleRef} className="text-center overflow-hidden flex justify-center w-full">
-            <img 
-              src={nameLogo} 
-              alt="Real Dimension Studio" 
-              className="w-full max-w-[80vw] md:max-w-[600px] h-auto object-contain hero-line drop-shadow-[0_0_15px_rgba(255,0,0,0.5)]" 
-            />
+          <div className="text-center max-w-4xl mx-auto px-4">
+            <h1
+              className="text-3xl md:text-5xl font-normal text-brand-red leading-none"
+              style={{ fontFamily: "'Bebas Neue', cursive", letterSpacing: "0.06em" }}
+            >
+              Real Dimension Studio
+            </h1>
+            <h2 className="mt-3 text-sm md:text-lg text-brand-lightYellow/80 leading-snug tracking-[0.08em] uppercase">
+              Post Production Studio for VFX, CGI, Video Editing, Color Grading & Motion Graphics
+            </h2>
           </div>
 
           {/* Featured Videos Grid */}
@@ -191,6 +194,15 @@ export default function Hero() {
 
             {/* Video 2 */}
             <VideoPlayer videoId="1029611770" title="Real Dimension Studio Featured Video 2" />
+          </div>
+
+          {/* Main Logo Image */}
+          <div ref={titleRef} className="text-center overflow-hidden flex justify-center w-full mt-4">
+            <img 
+              src={nameLogo} 
+              alt="Real Dimension Studio" 
+              className="w-full max-w-[80vw] md:max-w-[600px] h-auto object-contain hero-line drop-shadow-[0_0_15px_rgba(255,0,0,0.5)]" 
+            />
           </div>
         </motion.div>
 

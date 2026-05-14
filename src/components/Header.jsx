@@ -26,8 +26,8 @@ export default function Header() {
       <motion.header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-brand-darker/90 backdrop-blur-md border-b border-brand-lightYellow/5 py-3"
-            : "bg-transparent py-5"
+            ? "bg-brand-darker/90 backdrop-blur-md border-b border-brand-lightYellow/5 py-0.5"
+            : "bg-transparent py-1"
         }`}
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

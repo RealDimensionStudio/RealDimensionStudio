@@ -7,8 +7,11 @@ export const studioData = {
   // ─── Studio Meta ───────────────────────────────────────────
   studio: {
     name: "Real Dimension Studio",
+    legalName: "Real Dimension Studio",
     tagline: "You Imagine. We Create.",
-    subTagline: "Post Production | VFX | CGI | DI",
+    subTagline: "Post Production Studio for VFX | CGI | Editing | Color Grading | Motion Graphics",
+    description:
+      "Real Dimension Studio is a professional post production studio specializing in VFX, CGI, video editing, color grading, motion graphics, and cinematic storytelling.",
     location: "Mumbai, India",
     established: "2022",
     email: "realdimensionstudio@gmail.com",
@@ -17,12 +20,29 @@ export const studioData = {
     youtube: "",
     linkedin: "https://linkedin.com/company/realdimensionstudio",
     vimeo: "",
+    owner: {
+      name: "Ravi Jadaun",
+      role: "Founder / Owner",
+      title: "Founder, VFX Supervisor & Producer",
+      imdb: "https://www.imdb.com/name/nm14237250/",
+    },
+    socialProfiles: {
+      instagram: "https://www.instagram.com/realdimensionstudio/",
+      linkedin: "https://linkedin.com/company/realdimensionstudio",
+      imdb: "https://www.imdb.com/name/nm14237250/",
+    },
     companyProfile: {
       title: "Real Dimension Studio Company Profile",
       href: "https://drive.google.com/file/d/1Gai_sWNKhmjaFQniiB4WaBjIdDXfbh-6/view?usp=sharing",
       previewHref: "https://drive.google.com/file/d/1Gai_sWNKhmjaFQniiB4WaBjIdDXfbh-6/preview",
       aboutLabel: "More about us",
       contactLabel: "Open PDF",
+    },
+    seo: {
+      title: "Real Dimension Studio | Post Production Studio",
+      description:
+        "Real Dimension Studio is a professional post production studio offering VFX, CGI, video editing, color grading, motion graphics, and cinematic content creation.",
+      canonicalUrl: "https://realdimensionstudio.com",
     },
   },
 

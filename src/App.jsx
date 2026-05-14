@@ -1,37 +1,43 @@
-import { useState } from "react";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import OurTeam from "./components/OurTeam";
-import Services from "./components/Services";
-import OurWork from "./components/OurWork";
-import Contact from "./components/Contact";
-import SplashScreen from "./components/SplashScreen";
-import CreativeBackground from "./components/CreativeBackground";
-import Scroll3DEffects from "./components/Scroll3DEffects";
+import { useEffect, useState } from "react";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
+
+function getPathname() {
+  if (typeof window === "undefined") {
+    return "/";
+  }
+
+  return window.location.pathname || "/";
+}
 
 export default function App() {
-  const [showSplash, setShowSplash] = useState(true);
+  const [pathname, setPathname] = useState(getPathname);
 
-  return (
-    <div className="relative text-brand-lightYellow min-h-screen noise-overlay">
-      {/* Dynamic 3D / VFX Background Component */}
-      <CreativeBackground />
-      
-      {/* Content wrapper with transparent overlay to ensure readability while displaying CGI depth */}
-      <div className="relative z-10 min-h-screen">
-        {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
-        <Scroll3DEffects />
-        <Header />
-        <main>
-          <Hero />
-          <About />
-          <OurTeam />
-          <Services />
-          <OurWork />
-          <Contact />
-        </main>
-      </div>
-    </div>
-  );
+  useEffect(() => {
+    const onPopState = () => setPathname(getPathname());
+
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
+
+  const navigate = (nextPath) => {
+    if (nextPath === pathname) {
+      return;
+    }
+
+    window.history.pushState({}, "", nextPath);
+    setPathname(nextPath);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  if (pathname === "/about") {
+    return <AboutPage currentPath={pathname} onNavigate={navigate} />;
+  }
+
+  if (pathname === "/contact") {
+    return <ContactPage currentPath={pathname} onNavigate={navigate} />;
+  }
+
+  return <HomePage onNavigate={navigate} currentPath={pathname} />;
 }
