@@ -180,14 +180,14 @@ export default function CreativeBackground() {
       </Canvas>
 
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background:
             "linear-gradient(90deg, rgba(5,5,5,0.68) 0%, rgba(5,5,5,0.24) 42%, rgba(5,5,5,0.78) 100%)",
         }}
       />
       <div
-        className="absolute inset-0 opacity-[0.08]"
+        className="absolute inset-0 opacity-[0.08] pointer-events-none"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)",
@@ -196,13 +196,13 @@ export default function CreativeBackground() {
         }}
       />
       <div
-        className="absolute inset-0 opacity-[0.06]"
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
         style={{
           background:
             "repeating-linear-gradient(0deg, transparent 0px, transparent 6px, rgba(255,255,255,0.08) 7px)",
         }}
       />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.84)_86%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.84)_86%)] pointer-events-none" />
     </div>
   );
 }

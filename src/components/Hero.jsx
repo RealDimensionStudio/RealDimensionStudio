@@ -222,7 +222,7 @@ export default function Hero() {
 
         {/* CTAs */}
         <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10"
+          className="relative z-50 flex flex-col sm:flex-row items-center justify-center gap-4 mt-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.6 }}
@@ -232,11 +232,11 @@ export default function Hero() {
             smooth
             duration={600}
             offset={-70}
-            className="group relative px-8 py-4 bg-brand-red text-brand-lightYellow text-sm tracking-widest uppercase font-normal cursor-pointer overflow-hidden"
+            className="group relative px-8 py-4 bg-brand-red text-brand-lightYellow text-sm tracking-widest uppercase font-normal cursor-pointer overflow-hidden pointer-events-auto"
           >
-            <span className="relative z-10">{hero.cta.label}</span>
-            <span className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-            <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[1]" style={{ mixBlendMode: "difference" }} />
+            <span className="relative z-10 pointer-events-none">{hero.cta.label}</span>
+            <span className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 pointer-events-none" />
+            <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[1] pointer-events-none" style={{ mixBlendMode: "difference" }} />
           </Link>
         </motion.div>
 

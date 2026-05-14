@@ -118,32 +118,44 @@
       0 10px 24px rgba(230, 57, 70, 0.12);
   }
 
-  main section a,
-  main section button,
   main section iframe,
   main section img,
   main section .group {
-    transform-style: preserve-3d;
+    /* preserve-3d removed to fix iOS WebKit hover/tap bug on inner links */
+    transform-style: flat; 
   }
 
-  main section a:hover,
-  main section button:hover {
-    transform: translateZ(6px) translateY(-1px);
-    box-shadow: 0 10px 24px rgba(230, 57, 70, 0.1);
-  }
+  @media (hover: hover) and (pointer: fine) {
+    main section a:hover,
+    main section button:hover {
+      transform: translateZ(6px) translateY(-1px);
+      box-shadow: 0 10px 24px rgba(230, 57, 70, 0.1);
+    }
+  
+    #work button:hover {
+      transform: none;
+    }
+  
+    main section .group:hover {
+      box-shadow:
+        0 16px 34px rgba(0, 0, 0, 0.22),
+        0 0 20px rgba(230, 57, 70, 0.08);
+    }
 
-  #work button:hover {
-    transform: none;
+    #work .grid > div:hover,
+    #about .grid > div:hover,
+    #contact .grid > div:hover {
+      transform: translateY(-4px) translateZ(10px) rotateX(0.8deg) rotateY(-0.8deg);
+    }
   }
 
   #work .rds-3d-content {
     transform: none;
   }
 
-  main section .group:hover {
-    box-shadow:
-      0 16px 34px rgba(0, 0, 0, 0.22),
-      0 0 20px rgba(230, 57, 70, 0.08);
+  #about .rds-3d-content,
+  #contact .rds-3d-content {
+    transform: none;
   }
 
   #home .rds-3d-content,
@@ -181,12 +193,6 @@
   #contact .grid > div {
     transform-style: preserve-3d;
     transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
-  }
-
-  #work .grid > div:hover,
-  #about .grid > div:hover,
-  #contact .grid > div:hover {
-    transform: translateY(-4px) translateZ(10px) rotateX(0.8deg) rotateY(-0.8deg);
   }
 
   @media (max-width: 767px) {

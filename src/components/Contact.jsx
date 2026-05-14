@@ -1,7 +1,8 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 void motion;
 import studioData from "../data/studioData";
-import companyProfilePdf from "../assets/RDS Company Profile.pdf";
+import PdfPreviewModal from "./PdfPreviewModal";
 
 function SectionLabel({ text }) {
   return (
@@ -14,6 +15,7 @@ function SectionLabel({ text }) {
 
 export default function Contact() {
   const { contact, studio } = studioData;
+  const [isPdfOpen, setIsPdfOpen] = useState(false);
 
   return (
     <section id="contact" className="relative bg-transparent py-16 md:py-20 overflow-hidden">
@@ -78,13 +80,23 @@ export default function Contact() {
                     <p className="text-brand-lightYellow/30 text-xs tracking-widest uppercase mb-0.5">
                       {item.label}
                     </p>
-                    {item.href ? (
+                    {item.type === "pdf" ? (
+                      <button
+                        type="button"
+                        onClick={() => setIsPdfOpen(true)}
+                        className="relative z-[60] inline-flex touch-manipulation cursor-pointer pointer-events-auto items-center gap-2 rounded-full border border-brand-red/35 bg-brand-red/10 px-4 py-2 text-xs uppercase tracking-[0.28em] text-brand-lightYellow transition-all duration-200 hover:border-brand-red hover:bg-brand-red hover:text-brand-lightYellow active:scale-[0.98]"
+                        title={item.label}
+                      >
+                        <span>{studio.companyProfile.contactLabel}</span>
+                        <span aria-hidden="true">View</span>
+                      </button>
+                    ) : item.href ? (
                       <a
-                        href={item.href === "company-profile-pdf" ? companyProfilePdf : item.href}
+                        href={item.href}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-brand-lightYellow/80 text-sm font-medium hover:text-brand-red transition-colors duration-200"
-                        title="Open Company Profile PDF"
+                        className="relative z-50 text-brand-lightYellow/80 text-sm font-medium hover:text-brand-red transition-colors duration-200 cursor-pointer pointer-events-auto"
+                        title={item.label}
                       >
                         {item.value}
                       </a>
@@ -110,7 +122,7 @@ export default function Contact() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 border border-brand-lightYellow/10 flex items-center justify-center text-lg hover:border-brand-red/50 hover:bg-brand-red/5 transition-all duration-300"
+                    className="relative z-50 w-10 h-10 border border-brand-lightYellow/10 flex items-center justify-center text-lg hover:border-brand-red/50 hover:bg-brand-red/5 transition-all duration-300 cursor-pointer pointer-events-auto"
                     title={s.label}
                   >
                     {s.icon}
@@ -171,6 +183,14 @@ export default function Contact() {
           </span>
         </div>
       </div>
+      {isPdfOpen ? (
+        <PdfPreviewModal
+          onClose={() => setIsPdfOpen(false)}
+          title={studio.companyProfile.title}
+          previewUrl={studio.companyProfile.previewHref}
+          externalUrl={studio.companyProfile.href}
+        />
+      ) : null}
     </section>
   );
 }

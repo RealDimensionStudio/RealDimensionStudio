@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 void motion;
 import Tilt from "react-parallax-tilt";
@@ -15,6 +16,152 @@ function SectionLabel({ text }) {
       <span className="w-6 h-px bg-brand-red" />
       <span className="text-brand-red text-xs tracking-[0.35em] uppercase font-normal">{text}</span>
     </div>
+  );
+}
+
+function TeamProfileModal({
+  selectedMember,
+  onClose,
+  creditsTab,
+  setCreditsTab,
+  hasTabbedCredits,
+  currentCredits,
+  teamImages,
+  logoB,
+}) {
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [onClose]);
+
+  return createPortal(
+    (
+      <div className="fixed inset-0 z-[200] flex items-end justify-center bg-black/90 px-0 pt-2 backdrop-blur-sm">
+        <div className="absolute inset-0" aria-hidden="true" onClick={onClose} />
+
+        <motion.div
+          initial={{ y: "100%" }}
+          animate={{ y: 0 }}
+          exit={{ y: "100%" }}
+          transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+          className="relative z-10 flex h-[90vh] w-full flex-col overflow-hidden rounded-t-[16px] bg-brand-gray shadow-[0_20px_60px_rgba(0,0,0,0.45)] md:w-[60vw] md:rounded-t-[18px] md:rounded-b-none"
+          onClick={(event) => event.stopPropagation()}
+        >
+          <div className="flex items-center justify-between gap-3 border-b border-brand-lightYellow/10 px-3 py-3 md:px-4">
+            <div>
+              <div className="mb-2 h-1 w-10 rounded-full bg-brand-lightYellow/20" />
+              <p className="text-xs uppercase tracking-[0.35em] text-brand-red">Team Profile</p>
+              <h3
+                className="mt-1 text-xl text-brand-lightYellow md:text-2xl"
+                style={{ fontFamily: "'Bebas Neue', cursive", letterSpacing: "0.05em" }}
+              >
+                {selectedMember.name}
+              </h3>
+              <p className="mt-1 text-[10px] uppercase tracking-[0.22em] text-brand-lightYellow/40 md:text-xs">
+                {selectedMember.role}
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={onClose}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-brand-lightYellow/15 text-brand-lightYellow/70 transition-all duration-200 hover:border-brand-red hover:bg-brand-red hover:text-brand-lightYellow md:h-10 md:w-10"
+              aria-label="Close profile"
+            >
+              X
+            </button>
+          </div>
+
+          <div className="flex flex-1 flex-col overflow-hidden md:grid md:grid-rows-[40%_60%]">
+            <div className="px-4 py-4 md:px-6 md:py-4 md:overflow-hidden">
+              <div className="flex items-start gap-4">
+                <div className="h-20 w-20 flex-shrink-0 overflow-hidden border border-brand-red/20 bg-brand-darker md:h-24 md:w-24">
+                  <img
+                    src={teamImages[selectedMember.name] || selectedMember.image || logoB}
+                    alt={selectedMember.name}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h3
+                    className="text-3xl font-normal text-brand-red"
+                    style={{ fontFamily: "'Bebas Neue', cursive" }}
+                  >
+                    {selectedMember.name}
+                  </h3>
+                  <p className="text-brand-red text-xs tracking-widest uppercase">{selectedMember.role}</p>
+                </div>
+              </div>
+
+              <p className="mt-5 text-sm leading-relaxed text-brand-lightYellow/80">{selectedMember.bio}</p>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                {selectedMember.expertise.map((expertise, index) => (
+                  <span key={index} className="border border-brand-red/30 px-3 py-1 text-xs uppercase text-brand-red">
+                    {expertise}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {currentCredits.length > 0 ? (
+              <div className="flex-1 overflow-y-auto px-4 pb-4 md:px-6 md:pb-5 md:pt-2">
+                {hasTabbedCredits ? (
+                  <div className="flex border-b border-brand-lightYellow/10">
+                    {selectedMember.hollywoodCredits ? (
+                      <button
+                        type="button"
+                        onClick={() => setCreditsTab("hollywood")}
+                        className={`px-4 py-2 text-xs uppercase ${creditsTab === "hollywood" ? "border-b-2 border-brand-red text-brand-lightYellow" : "text-brand-lightYellow/40"}`}
+                      >
+                        Hollywood
+                      </button>
+                    ) : null}
+                    {selectedMember.indianCredits ? (
+                      <button
+                        type="button"
+                        onClick={() => setCreditsTab("india")}
+                        className={`px-4 py-2 text-xs uppercase ${creditsTab === "india" ? "border-b-2 border-brand-red text-brand-lightYellow" : "text-brand-lightYellow/40"}`}
+                      >
+                        Indian Cinema
+                      </button>
+                    ) : null}
+                  </div>
+                ) : (
+                  <p className="border-b border-brand-lightYellow/10 pb-2 text-xs uppercase tracking-[0.3em] text-brand-lightYellow/40">
+                    Credits
+                  </p>
+                )}
+
+                <div className="mt-4 space-y-2">
+                  {currentCredits.map((credit, index) => (
+                    <div key={index} className="flex justify-between border-b border-brand-lightYellow/5 py-2 text-sm">
+                      <span className="text-brand-lightYellow/80">{credit.title}</span>
+                      <span className="text-brand-lightYellow/40">{credit.year}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+          </div>
+
+          <div className="h-px w-full bg-brand-lightYellow/10" />
+        </motion.div>
+      </div>
+    ),
+    document.body
   );
 }
 
@@ -88,6 +235,14 @@ export default function OurTeam() {
   useEffect(() => {
     updateCardTransforms();
   }, [about.team.length]);
+
+  useEffect(() => {
+    if (!selectedMember) {
+      return;
+    }
+
+    setCreditsTab("hollywood");
+  }, [selectedMember]);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -288,65 +443,16 @@ export default function OurTeam() {
 
       <AnimatePresence>
         {selectedMember && (
-          <motion.div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm" onClick={() => setSelectedMember(null)}>
-            <motion.div className="relative bg-brand-gray border border-brand-lightYellow/10 max-w-2xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-              <div className="p-8">
-                <button className="absolute top-4 right-4 text-brand-lightYellow/60 hover:text-brand-lightYellow" onClick={() => setSelectedMember(null)}>
-                  ✕
-                </button>
-                <div className="flex items-start gap-5">
-                  <div className="w-20 h-20 overflow-hidden border border-brand-red/20 bg-brand-darker flex-shrink-0">
-                    <img src={teamImages[selectedMember.name] || selectedMember.image || logoB} alt={selectedMember.name} className="w-full h-full object-cover" />
-                  </div>
-                  <div>
-                    <h3 className="text-3xl font-normal text-brand-red" style={{ fontFamily: "'Bebas Neue', cursive" }}>
-                      {selectedMember.name}
-                    </h3>
-                    <p className="text-brand-red text-xs tracking-widest uppercase">{selectedMember.role}</p>
-                  </div>
-                </div>
-                <p className="text-brand-lightYellow/80 text-sm leading-relaxed mt-5">{selectedMember.bio}</p>
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {selectedMember.expertise.map((e, i) => (
-                    <span key={i} className="px-3 py-1 border border-brand-red/30 text-brand-red text-xs uppercase">
-                      {e}
-                    </span>
-                  ))}
-                </div>
-
-                {currentCredits.length > 0 && (
-                  <div className="mt-8">
-                    {hasTabbedCredits ? (
-                      <div className="flex border-b border-brand-lightYellow/10">
-                        {selectedMember.hollywoodCredits && (
-                          <button onClick={() => setCreditsTab("hollywood")} className={`px-4 py-2 text-xs uppercase ${creditsTab === "hollywood" ? "border-b-2 border-brand-red text-brand-lightYellow" : "text-brand-lightYellow/40"}`}>
-                            Hollywood
-                          </button>
-                        )}
-                        {selectedMember.indianCredits && (
-                          <button onClick={() => setCreditsTab("india")} className={`px-4 py-2 text-xs uppercase ${creditsTab === "india" ? "border-b-2 border-brand-red text-brand-lightYellow" : "text-brand-lightYellow/40"}`}>
-                            Indian Cinema
-                          </button>
-                        )}
-                      </div>
-                    ) : (
-                      <p className="text-brand-lightYellow/40 text-xs tracking-[0.3em] uppercase border-b border-brand-lightYellow/10 pb-2">
-                        Credits
-                      </p>
-                    )}
-                    <div className="mt-4 space-y-2">
-                      {currentCredits.map((credit, i) => (
-                        <div key={i} className="flex justify-between py-2 border-b border-brand-lightYellow/5 text-sm">
-                          <span className="text-brand-lightYellow/80">{credit.title}</span>
-                          <span className="text-brand-lightYellow/40">{credit.year}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </motion.div>
-          </motion.div>
+          <TeamProfileModal
+            selectedMember={selectedMember}
+            onClose={() => setSelectedMember(null)}
+            creditsTab={creditsTab}
+            setCreditsTab={setCreditsTab}
+            hasTabbedCredits={hasTabbedCredits}
+            currentCredits={currentCredits}
+            teamImages={teamImages}
+            logoB={logoB}
+          />
         )}
       </AnimatePresence>
     </section>

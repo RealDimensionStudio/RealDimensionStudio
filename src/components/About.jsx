@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 void motion;
 import studioData from "../data/studioData";
+import PdfPreviewModal from "./PdfPreviewModal";
 
 function SectionLabel({ text }) {
   return (
@@ -12,7 +14,8 @@ function SectionLabel({ text }) {
 }
 
 export default function About() {
-  const { about } = studioData;
+  const { about, studio } = studioData;
+  const [isPdfOpen, setIsPdfOpen] = useState(false);
 
   return (
     <section id="about" className="relative bg-transparent py-16 md:py-20 overflow-hidden">
@@ -82,21 +85,20 @@ export default function About() {
               </p>
             </motion.blockquote>
 
-            <div className="mt-2">
-              <a
-                href="/RealDimensionStudio_Brochure.pdf"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 border border-brand-red/30 bg-brand-red/10 text-brand-lightYellow text-sm tracking-widest uppercase rounded-full hover:bg-brand-red/20 hover:border-brand-red/60 hover:text-brand-lightYellow transition-all duration-200"
-                title="Download PDF - More about us"
+            <div className="mt-2 relative z-50 flex justify-center">
+              <button
+                type="button"
+                onClick={() => setIsPdfOpen(true)}
+                className="relative z-[60] inline-flex touch-manipulation cursor-pointer pointer-events-auto items-center gap-2 rounded-full border border-brand-red/35 bg-brand-red/10 px-5 py-3 text-sm uppercase tracking-[0.28em] text-brand-lightYellow shadow-[0_10px_30px_rgba(230,57,70,0.08)] transition-all duration-200 hover:border-brand-red hover:bg-brand-red hover:text-brand-lightYellow active:scale-[0.98]"
+                title="Open PDF - More about us"
               >
                 <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                   <polyline points="7 10 12 15 17 10" />
                   <line x1="12" y1="15" x2="12" y2="3" />
                 </svg>
-                <span className="text-sm">More about us</span>
-              </a>
+                <span className="text-sm">{studio.companyProfile.aboutLabel}</span>
+              </button>
             </div>
           </div>
         </div>
@@ -113,6 +115,15 @@ export default function About() {
           </div>
         </div>
       </div>
+
+      {isPdfOpen ? (
+        <PdfPreviewModal
+          onClose={() => setIsPdfOpen(false)}
+          title={studio.companyProfile.title}
+          previewUrl={studio.companyProfile.previewHref}
+          externalUrl={studio.companyProfile.href}
+        />
+      ) : null}
     </section>
   );
 }

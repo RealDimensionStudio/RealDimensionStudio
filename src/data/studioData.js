@@ -17,6 +17,13 @@ export const studioData = {
     youtube: "",
     linkedin: "https://linkedin.com/company/realdimensionstudio",
     vimeo: "",
+    companyProfile: {
+      title: "Real Dimension Studio Company Profile",
+      href: "https://drive.google.com/file/d/1Gai_sWNKhmjaFQniiB4WaBjIdDXfbh-6/view?usp=sharing",
+      previewHref: "https://drive.google.com/file/d/1Gai_sWNKhmjaFQniiB4WaBjIdDXfbh-6/preview",
+      aboutLabel: "More about us",
+      contactLabel: "Open PDF",
+    },
   },
 
   // ─── Navigation ────────────────────────────────────────────
@@ -1045,7 +1052,7 @@ export const studioData = {
       { icon: "📍", label: "Location", value: "245, Laxmi Plaza, Sab Tv lane,\nAndheri West, Mumbai 400053" },
       { icon: "📧", label: "Email", value: "realdimensionstudio@gmail.com" },
       { icon: "📞", label: "Phone", value: "+91 8587944307 / +91 9702774881" },
-      { icon: "📄", label: "Company Profile", value: "Open PDF", href: "company-profile-pdf" },
+      { icon: "📄", label: "Company Profile", value: "Open PDF", type: "pdf" },
     ],
     formFields: [
       { name: "name", label: "Your Name", type: "text", placeholder: "John Doe" },
