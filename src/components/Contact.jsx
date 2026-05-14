@@ -114,8 +114,6 @@ export default function Contact() {
               <div className="flex gap-3">
                 {[
                   { label: "Instagram", href: studio.instagram, icon: "📸" },
-                  { label: "YouTube", href: studio.youtube, icon: "🎬" },
-                  { label: "LinkedIn", href: studio.linkedin, icon: "💼" },
                 ].map((s) => (
                   <a
                     key={s.label}
